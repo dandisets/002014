@@ -51,7 +51,7 @@ citation: Choi, Jiwon; Amjad, Usamma; Murray, Raymond; Shrivastav, Ritesh; Teich
   Tobias; Goodell, Baldwin; Olson, Matthew; Schaeffer, David J.; Oluoch, Julia K.;
   Schwerdt, Helen N. (2026) Aseptic, semi-sealed cranial chamber implants for chronic
   multi-channel neurochemical and electrophysiological neural recording in nonhuman
-  primates (Version draft) [Data set]. DANDI Archive. https://dandiarchive.org/dandiset/002014/draft
+  primates (Version 0.261012.0921) [Data set]. DANDI Archive. https://doi.org/10.48324/dandi.002014/0.261012.0921
 contributor:
 - affiliation:
   - identifier: https://ror.org/01an3r305
@@ -196,6 +196,7 @@ contributor:
   - dcite:DataCurator
   schemaKey: Person
 dateCreated: '2026-09-28T16:33:15.277048+00:00'
+datePublished: '2026-10-12T09:21:28.419436+00:00'
 description: This dataset contains chronic neurochemical and electrophysiological
   recordings from the striatum of an adult female rhesus monkey (Macaca mulatta; Monkey
   T) implanted with an aseptic, semi-sealed cranial chamber, collected by the Schwerdt
@@ -218,8 +219,9 @@ description: This dataset contains chronic neurochemical and electrophysiologica
   value cue onset, reward delivery, and error types) decoded from 8-bit Neuralynx
   event codes. The Neuralynx and FSCV systems were synchronized using shared trial-start
   event codes, and all data are expressed relative to the start of the Neuralynx recording.
+doi: 10.48324/dandi.002014/0.261012.0921
 ethicsApproval: []
-id: DANDI:002014/draft
+id: DANDI:002014/0.261012.0921
 identifier: DANDI:002014
 keywords:
 - fast scan cyclic voltammetry
@@ -228,11 +230,23 @@ keywords:
 license:
 - spdx:CC-BY-4.0
 manifestLocation:
-- https://api.dandiarchive.org/api/dandisets/002014/versions/draft/assets/
+- https://dandiarchive.s3.amazonaws.com/dandisets/002014/0.261012.0921/assets.yaml
 name: Aseptic, semi-sealed cranial chamber implants for chronic multi-channel neurochemical
   and electrophysiological neural recording in nonhuman primates
 protocol:
 - https://www.protocols.io/view/baseplate-implantation-for-two-part-chamber-system-kqdg32b91v25/v1
+publishedBy:
+  endDate: '2026-10-12T09:21:28.419436+00:00'
+  id: urn:uuid:992885c0-54f0-4eae-a4d3-b1a8f4a468e9
+  name: DANDI publish
+  schemaKey: PublishActivity
+  startDate: '2026-10-12T09:21:28.419436+00:00'
+  wasAssociatedWith:
+  - id: urn:uuid:d00f4c84-24f3-4045-b459-0b59eba5f3a1
+    identifier: RRID:SCR_017571
+    name: DANDI API
+    schemaKey: Software
+    version: 0.1.0
 relatedResource:
 - identifier: https://doi.org/10.1016/j.jneumeth.2025.110467
   name: Aseptic, semi-sealed cranial chamber implants for chronic multi-channel neurochemical
@@ -257,6 +271,6 @@ relatedResource:
 repository: https://dandiarchive.org
 schemaKey: Dandiset
 schemaVersion: 0.7.0
-url: https://dandiarchive.org/dandiset/002014/draft
-version: draft
+url: https://dandiarchive.org/dandiset/002014/0.261012.0921
+version: 0.261012.0921
 wasGeneratedBy: []
