@@ -13,12 +13,10 @@
 "access":
 [
 {
-"embargoedUntil":
-"2028-09-27",
 "schemaKey":
 "AccessRequirements",
 "status":
-"dandi:EmbargoedAccess"
+"dandi:OpenAccess"
 }
 ],
 "approach":
@@ -41,6 +39,8 @@
 ],
 "dateModified":
 "2026-09-28T18:34:22.077294+02:00",
+"datePublished":
+"2026-10-12T09:21:28.442114+00:00",
 "digest":
 {
 "dandi:dandi-etag":
@@ -90,6 +90,34 @@
 ],
 "path":
 "sub-Monkey-T/sub-Monkey-T_ses-09272024_ecephys.nwb",
+"publishedBy":
+{
+"endDate":
+"2026-10-12T09:21:28.442114+00:00",
+"id":
+"urn:uuid:fae76572-c9ef-40f6-b8e9-ba8e404efd81",
+"name":
+"DANDI publish",
+"schemaKey":
+"PublishActivity",
+"startDate":
+"2026-10-12T09:21:28.442114+00:00",
+"wasAssociatedWith":
+[
+{
+"id":
+"urn:uuid:f0e6ca6f-270d-4000-aa3d-955a47fc9d95",
+"identifier":
+"RRID:SCR_017571",
+"name":
+"DANDI API",
+"schemaKey":
+"Software",
+"version":
+"0.1.0"
+}
+]
+},
 "relatedResource":
 [
 {
@@ -223,7 +251,7 @@
 ]
 },
 "modified":
-"2026-09-28T16:35:48.360997Z",
+"2026-10-12T09:21:28.444093Z",
 "path":
 "sub-Monkey-T/sub-Monkey-T_ses-09272024_ecephys.nwb",
 "size":

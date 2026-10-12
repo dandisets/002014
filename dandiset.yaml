@@ -14,9 +14,9 @@ about:
   name: Parkinson's disease
   schemaKey: Disorder
 access:
-- embargoedUntil: '2028-09-27'
+- embargoedUntil: '2026-10-12'
   schemaKey: AccessRequirements
-  status: dandi:EmbargoedAccess
+  status: dandi:OpenAccess
 assetsSummary:
   approach:
   - name: electrophysiological approach
