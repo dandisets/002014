@@ -18,35 +18,9 @@ access:
   schemaKey: AccessRequirements
   status: dandi:OpenAccess
 assetsSummary:
-  approach:
-  - name: electrophysiological approach
-    schemaKey: ApproachType
-  dataStandard:
-  - identifier: RRID:SCR_015242
-    name: Neurodata Without Borders (NWB)
-    schemaKey: StandardsType
-  measurementTechnique:
-  - name: analytical technique
-    schemaKey: MeasurementTechniqueType
-  - name: spike sorting technique
-    schemaKey: MeasurementTechniqueType
-  - name: multi electrode extracellular electrophysiology recording technique
-    schemaKey: MeasurementTechniqueType
-  - name: surgical technique
-    schemaKey: MeasurementTechniqueType
-  numberOfBytes: 3759609107
-  numberOfFiles: 1
-  numberOfSubjects: 1
+  numberOfBytes: 0
+  numberOfFiles: 0
   schemaKey: AssetsSummary
-  species:
-  - identifier: http://purl.obolibrary.org/obo/NCBITaxon_9544
-    name: Macaca mulatta - Rhesus monkey
-    schemaKey: SpeciesType
-  variableMeasured:
-  - Units
-  - ElectricalSeries
-  - ElectrodeGroup
-  - ProcessingModule
 citation: Choi, Jiwon; Amjad, Usamma; Murray, Raymond; Shrivastav, Ritesh; Teichert,
   Tobias; Goodell, Baldwin; Olson, Matthew; Schaeffer, David J.; Oluoch, Julia K.;
   Schwerdt, Helen N. (2026) Aseptic, semi-sealed cranial chamber implants for chronic
