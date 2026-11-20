@@ -51,7 +51,7 @@ citation: Choi, Jiwon; Amjad, Usamma; Murray, Raymond; Shrivastav, Ritesh; Teich
   Tobias; Goodell, Baldwin; Olson, Matthew; Schaeffer, David J.; Oluoch, Julia K.;
   Schwerdt, Helen N. (2026) Aseptic, semi-sealed cranial chamber implants for chronic
   multi-channel neurochemical and electrophysiological neural recording in nonhuman
-  primates (Version draft) [Data set]. DANDI Archive. https://dandiarchive.org/dandiset/002014/draft
+  primates (Version 0.261120.0528) [Data set]. DANDI Archive. https://doi.org/10.48324/dandi.002014/0.261120.0528
 contributor:
 - affiliation:
   - identifier: https://ror.org/01an3r305
@@ -196,6 +196,7 @@ contributor:
   - dcite:DataCurator
   schemaKey: Person
 dateCreated: '2026-09-28T16:33:15.277048+00:00'
+datePublished: '2026-11-20T05:28:50.900565+00:00'
 description: This dataset contains chronic neurochemical and electrophysiological
   recordings from the striatum of an adult female rhesus monkey (Macaca mulatta; Monkey
   T) implanted with an aseptic, semi-sealed cranial chamber, collected by the Schwerdt
@@ -218,8 +219,9 @@ description: This dataset contains chronic neurochemical and electrophysiologica
   value cue onset, reward delivery, and error types) decoded from 8-bit Neuralynx
   event codes. The Neuralynx and FSCV systems were synchronized using shared trial-start
   event codes, and all data are expressed relative to the start of the Neuralynx recording.
+doi: 10.48324/dandi.002014/0.261120.0528
 ethicsApproval: []
-id: DANDI:002014/draft
+id: DANDI:002014/0.261120.0528
 identifier: DANDI:002014
 keywords:
 - fast scan cyclic voltammetry
@@ -228,11 +230,23 @@ keywords:
 license:
 - spdx:CC-BY-4.0
 manifestLocation:
-- https://api.dandiarchive.org/api/dandisets/002014/versions/draft/assets/
+- https://dandiarchive.s3.amazonaws.com/dandisets/002014/0.261120.0528/assets.yaml
 name: Aseptic, semi-sealed cranial chamber implants for chronic multi-channel neurochemical
   and electrophysiological neural recording in nonhuman primates
 protocol:
 - https://www.protocols.io/view/baseplate-implantation-for-two-part-chamber-system-kqdg32b91v25/v1
+publishedBy:
+  endDate: '2026-11-20T05:28:50.900565+00:00'
+  id: urn:uuid:f2e45549-6302-4bad-9d69-2bf04a04a417
+  name: DANDI publish
+  schemaKey: PublishActivity
+  startDate: '2026-11-20T05:28:50.900565+00:00'
+  wasAssociatedWith:
+  - id: urn:uuid:5958dd84-a124-4399-882b-376d9dc9f02d
+    identifier: RRID:SCR_017571
+    name: DANDI API
+    schemaKey: Software
+    version: 0.1.0
 relatedResource:
 - identifier: https://doi.org/10.1016/j.jneumeth.2025.110467
   name: Aseptic, semi-sealed cranial chamber implants for chronic multi-channel neurochemical
@@ -254,9 +268,61 @@ relatedResource:
   resourceType: dcite:Software
   schemaKey: Resource
   url: https://github.com/catalystneuro/schwerdt-lab-to-nwb
+releaseNotes: "## Changes since version 0.261012.0921\n\nThe session file was re-converted
+  from the lab's source files with the corrected conversion ([catalystneuro/schwerdt-lab-to-nwb](https://github.com/catalystneuro/schwerdt-lab-to-nwb),
+  commits [4d716c5](https://github.com/catalystneuro/schwerdt-lab-to-nwb/commit/4d716c5)
+  and [40752c4](https://github.com/catalystneuro/schwerdt-lab-to-nwb/commit/40752c4)).
+  The conversion fixes problems found by a reproduction attempt ([issue #30](https://github.com/catalystneuro/schwerdt-lab-to-nwb/issues/30),
+  triaged in [issue #32](https://github.com/catalystneuro/schwerdt-lab-to-nwb/issues/32)).
+  The dandiset still holds one session of Monkey T (09/27/2024), under the same file
+  name.\n\n**Corrections**\n\n- **One clock for every stream.** The raw ephys, the
+  eye tracking and the spike times started at 0 s, while the trials, events, LFP and
+  FSCV were on the session clock, about 3.3 h later. They are now all in seconds from
+  the session start, the time the Neuralynx recording was opened (`recording_opened`
+  in the .ncs header).\n- **Time zone.** The lab's timestamps hold New York wall-clock
+  time stored as if it were UTC. The earlier conversion decoded them in the time zone
+  of the converting machine, which placed the trials, events, LFP and FSCV 2 h late.
+  They are now decoded as UTC, whatever the machine's zone.\n- **Sampling rate.**
+  The raw ephys and eye tracking are written at the rate measured from the .ncs record
+  timestamps (31999.9624 Hz), not the nominal 32000 Hz, which put the last samples
+  21.5 ms early and the spikes about 7 ms after their troughs. Every sample is now
+  within 0.7 ms of its recorded time.\n- **Raw FSCV.** The scan times were interpolated
+  against a Neuralynx timestamp, so the whole series started at the first trial. Each
+  scan is now placed on the session clock by a line fitted to the lab's pairs of FSCV-clock
+  and Neuralynx times (residual at most one scan, 0.1 s). With it, the trial-aligned
+  oxidation current can be located in the raw scans.\n- **Events.** Each event was
+  stored once for every overlapping 60 s trial window, about five times (7221 trial-start
+  events for 1412 trials), and out of order. Each event is now stored once, in time
+  order. Codes missing from the lab's event map are kept as `TTL code <code>`.\n-
+  **Plexon spikes.** The Plexon units are read with neo 0.14.6, which reads the PLX
+  timestamps as unsigned. Earlier versions placed some spikes 4294.967 s early and
+  dropped others; the sorted units now hold 102,252 spikes, where the published file
+  had 90,912. Spike times are sorted within each unit, and units are named by their
+  Plexon id (`ch<channel>#<unit>`, unit #0 is the unsorted unit).\n- **Units and scaling.**
+  The bipolar LFP carried the raw conversion factor (3.05e-8) for values already in
+  volts, which read about 3e7 times too small; it is now written with a conversion
+  of 1. The raw FSCV current is in nanoamperes with a conversion of 1e-9, so it reads
+  as amperes. The thresholded spike waveforms are converted from microvolts to volts.\n
+  - **Descriptions.** The dandiset, session and subject descriptions and the keywords
+  described the lab's micro-invasive probe study. They now describe this paper's cranial
+  chamber and the session's contents. The LFP is no longer called beta-band: it is
+  broadband, and its preprocessing is not documented in the source. The raw series
+  gives the filter settings from the .ncs headers (0.1 to 8000 Hz).\n\n**Additions**\n
+  \n- **Trial-aligned FSCV** has one row for every trial with data, a `trial_index`
+  column, and the `good` flag as the lab gives it. Its columns say that their units
+  are not known.\n\n**Known gaps**\n\n- The dandiset holds one session of Monkey T,
+  the session of Figs. 8 and 9. The electrode yields, cultures, fluid volumes, bone
+  growth and clinical observations, and all of Monkey J, are not in it.\n- The units
+  of the PCA-extracted dopamine, pH and motion components and of the oxidation current
+  are not given in the source, nor the window they are referenced to.\n- The trials
+  table has 1411 rows for 1412 trial-start events; the first trial start (4640.33
+  s) has no row.\n- Reward size is coded only by the reward events of rewarded trials.
+  The target position, which the paper says sets the reward size, is not in the source.\n
+  - The sorted unit ch75#1 has no waveforms in the units table.\n- The implant dates
+  are not given, so the days after implant that the paper reports cannot be checked."
 repository: https://dandiarchive.org
 schemaKey: Dandiset
 schemaVersion: 0.7.0
-url: https://dandiarchive.org/dandiset/002014/draft
-version: draft
+url: https://dandiarchive.org/dandiset/002014/0.261120.0528
+version: 0.261120.0528
 wasGeneratedBy: []
